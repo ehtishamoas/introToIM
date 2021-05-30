@@ -4,7 +4,7 @@ The Moiré pattern is well known in Mathematics and Physics. It is an interferen
 
 In this assignment, I have created a program which allows user to create different Moiré patterns using two set of verticle lines. Users are allowed to interact with the program using the mouse, with which, they can move and rotate the second set of lines in order to form different interesting patterns.
 
-Hese is a [link](https://drive.google.com/file/d/171gMOHYZsz195hOGGCe7wdBgZ0l9viOd/view?usp=sharing) to the video.
+Hese is a [link](https://drive.google.com/file/d/171gMOHYZsz195hOGGCe7wdBgZ0l9viOd/view?usp=sharing) to the video, where I showed how a user can use mouseX and mouseY to create different Moiré patterns.
 
 
 ### Problems faced and solved, and the interesting thing I discovered:
