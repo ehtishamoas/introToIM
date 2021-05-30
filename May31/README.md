@@ -1,6 +1,6 @@
 ### The Moiré Pattern
 
-The Moiré pattern is well known in Mathematics and Physics. It is an interference pattern ceated when two similar but offset templates overlay (inexact superimposition). 
+The Moiré pattern is a well-known interference pattern in Mathematics and Physics. It is created when two similar but offset templates overlay (inexact superimposition). 
 
 In this assignment, I have created a program which allows user to create different Moiré patterns using two set of verticle lines. Users are allowed to interact with the program using the mouse, with which, they can move and rotate the second set of lines in order to form different interesting patterns.
 
