@@ -6,7 +6,7 @@ For this assignment, I have created a random walkers code using the circles. A c
 
 This program is created using Object Oriented Programming, so the user is allowed to create as many circles as they want and start them at any location they want by providing the coordinates to the constuctor. I have created 5 circles, 4 of which start at the corners and 1 at the center.
 
-Here is the [link]([link](https://drive.google.com/file/d/171gMOHYZsz195hOGGCe7wdBgZ0l9viOd/view?usp=sharing)) to the video which illustrates this artwork.
+Here is the [link](https://drive.google.com/file/d/171gMOHYZsz195hOGGCe7wdBgZ0l9viOd/view?usp=sharing) to the video which illustrates this artwork.
 
 
 #### Problem I ran into and How I fixed:
@@ -18,5 +18,5 @@ While creating the code, I faced the problem that the circles would leave the ca
 First I decided to give random colors to the subseqent circles in order to make my artwork more appealing. But then after watching the video about perlin noise assigned for today, I decided to use that concept and stick with only one color (pink) where the different shades of that color appeared randomly, but the change was also very smooth due to the use of noise() function.
 
 Note: This assignment was inspired by the following two videos:
-[Video 1]([link](https://www.youtube.com/watch?v=rqecAdEGW6I))
-[Video 2]([link](https://www.youtube.com/watch?v=8ZEMLCnn8v0))
+[Video 1](https://www.youtube.com/watch?v=rqecAdEGW6I)
+[Video 2](https://www.youtube.com/watch?v=8ZEMLCnn8v0)
