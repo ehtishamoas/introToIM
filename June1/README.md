@@ -15,7 +15,7 @@ While creating the code, I faced the problem that the circles would leave the ca
 
 #### An interesting thing about my program:
 
-Firs I decided to give random colors to the subseqent circles in order to make my artwork more appealing. But then after watching the video about perlin noise assigned for today, I decided to use that concept and stick with only one color (pink) where the different shades of that color appeared randomly, but the change was also very smooth due to the use of noise() function.
+First I decided to give random colors to the subseqent circles in order to make my artwork more appealing. But then after watching the video about perlin noise assigned for today, I decided to use that concept and stick with only one color (pink) where the different shades of that color appeared randomly, but the change was also very smooth due to the use of noise() function.
 
 Note: This assignment was inspired by the following two videos:
 [Video 1]([link](https://www.youtube.com/watch?v=rqecAdEGW6I))
