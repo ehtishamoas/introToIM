@@ -1,11 +1,12 @@
-// Student Name: Ehtisham Ul Haq
-// Assignment Due Date: 3rd June, 2021
+/*
+Student Name: Ehtisham Ul Haq
+Assignment Due Date: 3rd June, 2021
 
-/* The Overall Concept:
-                       
+The Overall Concept:
    In this assignment, I have employed the concepts of Transformation, Object Oriented Programming, Arrays, and Perlin Noise to
    create the rotating squares of random colors that move randomly and smoothly on canvas. The user can add as much squares 
-   as they wishes on the canvas by altering the size of array.*/
+   as they wishes on the canvas by altering the size of array.
+*/
 
 
 RandomSquare[] squares= new RandomSquare[10]; //Array of 10 objects of RandomSquare class.
