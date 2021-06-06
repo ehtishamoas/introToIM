@@ -1,3 +1,17 @@
+/* Student Name: Ehtisham Ul Haq
+   Assignment Due Date: June 7, 2021
+   
+   Program description: This program allows the user to see the grayscale and blurred (portrait mode) version of the image.
+                        User can switch between the effects (original, gray scale, portraitMode) by clicking mouse button. 
+                        There is a portrait mode effect which focuses on the face of the middle dog and blurs every other pat of the image.
+                        This effect has specific calculations for the provided image (dogs.jpg) only. If the user simply want to blur the image,
+                        they can do that by removing the if condition in line 64.
+   
+   Usage Instructions: On starting the program, original image shows up. Then, on clicking anywhere on the canvas, gray scale image shows up,
+                       and on clicking again, the blurred (portrait mode) image shows up, and then again, the original shows up, and so on.
+*/                       
+
+
 PImage photo;
 
 //Below variable is used to switch between different effects for the image.
