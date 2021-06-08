@@ -1,1 +1,10 @@
+## Penguin Rush
 
+### Game Description:
+I plan to create a 2D platform game where a player character (a penguin) can be controlled using arrow keys. The player target would be to move around and collect fishes while avoiding the seals and traps.
+
+### Progress:
+
+#### June 8: 
+I will gather all the assets required for the game like penguin sprites, platform images, background images, and sounds etc.  
+I will also start working on the initial version of the code.
