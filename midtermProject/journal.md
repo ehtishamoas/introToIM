@@ -7,4 +7,4 @@ Penguine Rush would be a 2D platform game where a player character (a penguin) c
 
 #### June 8: 
 I have gathered all the assets required for the game like penguin sprites, platform images, background images, and sounds etc.  
-Now, I will also start working on the initial version of the code.
+I have also started working on the initial structure of the code.
