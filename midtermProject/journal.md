@@ -6,5 +6,5 @@ I plan to create a 2D platform game where a player character (a penguin) can be 
 ### Progress:
 
 #### June 8: 
-I will gather all the assets required for the game like penguin sprites, platform images, background images, and sounds etc.  
-I will also start working on the initial version of the code.
+I have gathered all the assets required for the game like penguin sprites, platform images, background images, and sounds etc.  
+Now, I will also start working on the initial version of the code.
