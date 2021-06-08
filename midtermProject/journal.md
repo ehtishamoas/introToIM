@@ -1,7 +1,7 @@
 ## Penguin Rush
 
 ### Game Description:
-I plan to create a 2D platform game where a player character (a penguin) can be controlled using arrow keys. The player target would be to move around and collect fishes while avoiding the seals and traps.
+Penguine Rush would be a 2D platform game where a player character (a penguin) can be controlled using arrow keys. The player target would be to move around and collect fishes while avoiding the seals and traps.
 
 ### Progress:
 
