@@ -86,7 +86,7 @@ class Game {
     h = _h;
     g = _g;
     x_shift = 0;
-    penguin = new Penguin(100, 100, 35, g, "penguin.png", 57, 65, 4); // 11 is number of sprites in an image
+    penguin = new Penguin(100, 100, 35, g, "penguin.png", 57, 65, 4); // 4 is number of sprites in an image
 
     // 200, 500
     // 500, 400
