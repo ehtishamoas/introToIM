@@ -68,3 +68,91 @@ I have created an ArrayList of PImage objects in Game class, and added all the b
 I have also created a Platform class which allows the player to jump onto a platform.
 
 Here is the [link](https://drive.google.com/file/d/1uUqRb82YS-rx_NIwLMy65pXgnoKvLM4U/view?usp=sharing) to the video of the gameplay.
+
+Here is the code for my current Game class:
+
+```
+class Game {
+  int w, h;
+  float g, x_shift, diff_x_shift;
+  Penguin penguin;
+
+  ArrayList<Platform> platforms = new ArrayList<Platform>();
+  ArrayList<Seal> seal = new ArrayList<Seal>();
+  ArrayList<PImage> backgrounds = new ArrayList<PImage>();
+
+  Game(int _w, int _h, float _g) { //g as in ground height. It is 585 for this image.
+    w = _w;
+    h = _h;
+    g = _g;
+    x_shift = 0;
+    penguin = new Penguin(100, 100, 35, g, "penguin.png", 57, 65, 4); // 11 is number of sprites in an image
+
+    // 200, 500
+    // 500, 400
+    // 800, 300
+    for (int i = 0; i<3; i++) {
+      platforms.add(new Platform(200 + i * 300, 450 - (i * 100), 128, 75, "platform.png"));
+    }
+    platforms.add(new Platform(2000, 450, 128, 75, "platform.png"));
+    for (int i = 0; i<2; i++) {
+      seal.add(new Seal(random(200, 1100), 100, 35, g, "seal.png", 203, 80, 3, 200, 1100));
+    }
+    for (int i = 0; i<2; i++) {
+      seal.add(new Seal(random(2000, 2800), 100, 35, g, "seal.png", 203, 80, 3, 2000, 2800));//last two are limits where seals can move
+    }
+    for (int i = 3; i>0; i--) {
+      PImage img;
+      img = loadImage("/images/layer" + str(i) + ".png");
+      backgrounds.add(img);
+    }
+  }
+
+  void  display() {
+    if (penguin.alive == false) {
+      fill(0);
+      textMode(CENTER);
+      textSize(40);
+      text("Game over", width/2, height/2);
+      return;
+    }  
+    int cnt = 0;
+    for (int i = 0; i < game.backgrounds.size(); i++) {
+
+      // Below statement is used to move all the background images at different speeds to give a natural look.
+      // x_shift is controlled in Penguin class by vx variable.
+
+      if (cnt == 0) {
+        diff_x_shift = x_shift/4;
+      } else if (cnt == 1) {
+        diff_x_shift = x_shift/3;
+      } else if (cnt == 2) {
+        diff_x_shift = x_shift/2;
+      } else {
+        diff_x_shift = x_shift;
+      }
+
+      int width_right = int(diff_x_shift % w);
+      int width_left = w - width_right;
+
+
+      image(game.backgrounds.get(i), 0, 0, width_left, h, width_right, 0, w, h);
+      image(game.backgrounds.get(i), width_left, 0, width_right, h, 0, 0, width_right, h);
+      cnt += 1;
+    }   
+
+    for (int i = 0; i < game.platforms.size(); i++) {
+      game.platforms.get(i).display();
+    }    
+
+    // strokeWeight(0)
+    // fill(0, 125, 0)
+    // rect(0, g, w, h)
+
+    for (int i = 0; i < game.seal.size(); i++) {
+      game.seal.get(i).display();
+    }
+    penguin.display();
+  }
+}
+```
