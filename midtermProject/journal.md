@@ -156,3 +156,12 @@ class Game {
   }
 }
 ```
+
+#### June 12, 2021:
+I have created Fish class and score variable, so that player can collect fishes in the game and the score (visible on the top-right will be increased). I have also created a spike class, so that when the penguin collides with any of the spikes, the game overs. Lastly, I have created igloo class, so at th end of each level, player will have to move the penguin to the igloo to successfully pass it. 
+
+I have also structured the game class by creating the 2 functions for each level (levelSetting and levelUpdate). This allows the player to play next levels, and continue from the current level if game overs there. I have not created any proper level yet. But I have created 2 very small levels just to ensure that everyting is working properly.
+
+Here is the [link](https://drive.google.com/file/d/1ncwYIQ4nh55_DclKunNT5kAw6Oz4yK1z/view?usp=sharing) to the gameplay video as of now.
+
+
