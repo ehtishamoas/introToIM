@@ -1,20 +1,33 @@
 ## Penguin Rush
 
+![startscreen_shot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/startScreen.png)
+
 ### Game Description:
 Penguine Rush is a 2D platform game where a player controls a penguin using Left, Right, and Up arrow keys to steer it on the screen.  
-The player's target is to move towards the right to explore the map and collect the fishes to increase the score while also avoiding the seals and the traps.  
-The map is made by snow-themed background images, platforms and tiles. Player can make the penguin jump and land on different platforms to collect the fishes and avoid the seals and traps.  
-The game includes a good background music and also uses good sound effects for certain occassions (like collecting a fish or eliminating a seal).
+The player's target is to move towards the right to explore the map and finish the level by entering an igloo while also collecting the fishes to increase the score and avoiding the seals and the ice spikes, colliding with which results in game over.  
+The map is made by snow-themed background images, platforms, and different objects like trees and snowmen. Player can make the penguin jump and land on different platforms to collect the fishes and avoid the seals and ice spikes.  
+The background music and sound effects for certain occassions (like jump, fish collection, level completion, and game over) are also included in the game.  
 
 
 ### Gameplay Instructions:
-Player can increase their score by collecting the fishes.  
-If the penguin collides with any of the seals sideways, or if it falls under any trap, the game would be over.  
-Player can eliminate the seals by landing on their heads after jumping. However, eliminating the seals will not increase the score.  
-Once the game is over, the player will be able to restart the game by clicking on the screen.  
+Player can start the game by pressing spacebar button on keyboard.  
+The penguin can be steered using left, right, and up arrow keys on keyboard.  
+Player can increase their score by collecting the fishes. The score is visible on the top right corner of the screen.  
+If the penguin collides with any of the seals or ice spikes, the game would be over.  
+Player can complete a game level by enetering the gate of the igloo located at the end of each level.  
+Then, the player can move to next level or restart the game if all the levels are passed by clicking anywhere on the screen.  
+Once the game is over, the player will be able to restart the game from the current level by clicking on the screen.  
 
-### Here is a screenshot of few image assets I have collected for the game:
-![assests_screenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/assets_screenshot.png)
+### Game Screenshots:
 
-### Major problems:
-I have not encountered any major problem so far.
+![gameScreenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/penguinRushScreenshot.png)
+
+![gameOverScreenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/gameoverScreenshot.png)
+
+![levelCompleteScreenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/levelCompleteScreenshot.png)
+
+![gameCompleteScreenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/gameCompletionScreenshot.png)
+
+
+### Major problems encountered:
+
