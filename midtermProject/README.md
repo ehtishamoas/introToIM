@@ -31,6 +31,12 @@ The background music and sound effects for certain occassions (like jump, fish c
 
 ![gameCompleteScreenshot](https://github.com/ehtishamoas/introToIM/blob/main/midtermProject/gameCompletionScreenshot.png)
 
+### Gameplay Video:
+Here is the [link](https://drive.google.com/file/d/1_TCsxud2RSg_5_bGwGXWPmjoosXdw0EB/view?usp=sharing) to the gameplay of the game.
 
-### Major problems encountered:
+### Major problems encountered and fixed:
+* First major problem I experienced was that some of the png images or sprites had empty empty areas around the sides. So, the collisions in the game were inaccurate if I simply used coordinates and image width variables. So, I had to decrease those inaccuracies by using hit and trial method where I added and subtracted values from the variables. I also introduced variable 'r' to use instead of image width and height to lower inaccuracies in geometric calcuations.
 
+* When I was writing code for collision with the spikes, I tried using the same code I used for collision with fishes (coordinates distance formula and variable 'r'). The collision was getting detected at the sides of the spikes but not at the middle. So, I decided to use nested if conditions to check if the x and y coordinates of either side of the penguin are in range of the coordinates of the sides of the spikes in order to accurately detect the collisions.
+
+* When I was creating level 1 using the classes I had built, the height and width calculations to place objets at certain location took a lot of time because the image assets were not well-organized in terms of their sizes and empty areas on the sides. Due to time constraints, I was able to make only one complete level of the game to submit for the assignment. For making new levels in the future, I will first organize all the assets and then start working on the mathematics in order to make levels efficiently.
