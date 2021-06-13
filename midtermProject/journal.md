@@ -162,6 +162,19 @@ I have created Fish class and score variable, so that player can collect fishes 
 
 I have also structured the game class by creating the 2 functions for each level (levelSetting and levelUpdate). This allows the player to play next levels, and continue from the current level if game overs there. I have not created any proper level yet. But I have created 2 very small levels just to ensure that everyting is working properly.
 
+Lastly, I finalized and added the sounds for background, jump, fish collection, game over, and level completion.
+
+As I showed the game to my friends, they pointed out that it would be illogical for the penguin to be able to eliminate seals by jumping on their heads. Morever, the game would also become much easier. This critique seemed plausible to me, and thus I removed that feature.
+
 Here is the [link](https://drive.google.com/file/d/1ncwYIQ4nh55_DclKunNT5kAw6Oz4yK1z/view?usp=sharing) to the gameplay video as of now.
 
+#### June 13, 2021:
+I have created background_objects class to add trees, rocks, crystals, snowmen, and signboards to make the game more appealing. 
 
+Then, I constructed 1 complete level of the game to submit for the assignment.
+
+Furthermore, I added snowfall effect using ellipses.
+
+I also wanted to add gaps in the ground platform, falling where would result in game over. But since I implemented ground platform as a background layer, I could not just add the image of gaps while making the last background layer a backgroung of the gap. I have an idea to include this feature: to implement the ground platform layer just like I implemented the above platforms (in level_setting method using a loop). But due to time constraints, I decided to make the game without this feature.
+
+Here is the [link](https://drive.google.com/file/d/1_TCsxud2RSg_5_bGwGXWPmjoosXdw0EB/view?usp=sharing) to the gameplay of the final version of the game.
