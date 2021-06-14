@@ -69,5 +69,9 @@ void loop() {
     digitalWrite(redLEDPin, LOW);
     digitalWrite(greenLEDPin, LOW);
     digitalWrite(blueLEDPin, LOW);
+  } else if ((state1 == HIGH && state2 == HIGH) && state3  == HIGH) {
+    digitalWrite(redLEDPin, HIGH);
+    digitalWrite(greenLEDPin, HIGH);
+    digitalWrite(blueLEDPin, HIGH);
   }
 }
