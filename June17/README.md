@@ -16,4 +16,4 @@ For the red LED brightness, I used the map function for the brightness variable,
 #### The solution:
 I set constraints on brightness values as 100 and 175,and then maped the values to 255-0 to make the brightness change effect will be more noticeable.
 
-Here is the (like)[https://drive.google.com/file/d/1yb4z0XUt7pVU0t-czz_2PGnSJTY5rHln/view?usp=sharing] to the video of the project.
+Here is the [link](https://drive.google.com/file/d/1yb4z0XUt7pVU0t-czz_2PGnSJTY5rHln/view?usp=sharing) to the video of the project.
