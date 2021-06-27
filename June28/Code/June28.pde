@@ -91,7 +91,7 @@ class Ball { //This class is used for all the aspects of ball
 
 
 class Game {
-  Ball[] ball = new Ball[1];
+  Ball[] ball = new Ball[2]; // More balls can be created by using bigger array
   float xPos = width/2-barSize; //x position of the player's movable bar.
   boolean keyLeft = false, keyRight = false, redLED = false, greenLED = false;
 
