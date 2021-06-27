@@ -10,10 +10,13 @@ The game is implemented using object oriented programming, so the player can inc
 #### Here is the screenshots of the game:
 ![Screenshot](https://github.com/ehtishamoas/introToIM/blob/main/June28/Screenshot.png)
 
+
 ![Screenshot](https://github.com/ehtishamoas/introToIM/blob/main/June28/Screenshot2.png)
+
 
 #### The circuit schematic of Arduino:
 ![schematic](https://github.com/ehtishamoas/introToIM/blob/main/June28/schematic.png)
+
 
 #### The photograph of Arduino and breadboard:
 ![photograph](https://github.com/ehtishamoas/introToIM/blob/main/June28/photograph.jpeg)
