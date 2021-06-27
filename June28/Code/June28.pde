@@ -1,3 +1,8 @@
+/*
+ * Student Name: Ehtisham Ul Haq
+ * Assignment due date: June 28, 2021
+ */
+
 import processing.serial.*;
 
 boolean startGame = false;
