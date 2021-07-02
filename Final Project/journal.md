@@ -21,6 +21,8 @@ The project will require servo motor, ultrasonic sensor, LED lights, and a buzze
 #### Processing:
 The project will use images, sounds, text, and file.
 
+## Journal entries:
+
 ### July 2, 2021:
 
 Today I purchased a small ball and model making sheet to be used as the field and pasted a green colored chart paper on it.
@@ -32,4 +34,5 @@ I also made 4 legs for the table by combining many straws.
 Furthermore, I bought a shoe shaped keychain, removed the chain from it, and hooked it with the servo motor.
 
 Here is the picture of the material and the progress I made today:
+
 ![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July2Pic.jpeg)
