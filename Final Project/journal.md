@@ -36,3 +36,17 @@ Furthermore, I bought a shoe shaped keychain, removed the chain from it, and hoo
 Here is the picture of the material and the progress I made today:
 
 ![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July2Pic.jpeg)
+
+
+### July 3, 2021:
+
+Today I created a goal using small net and some paper straws. I also created a hole in the goal place where the ball will fall and detected by the ultrasonic sensor.
+
+I also found the servo motor's speed to be very low. So, I decided to use the dc motor instead. Now player can use up and down arrow keys to adjust the position of foot and then use the spacebar to kick the ball.
+
+Next thing I plan on doing is to use servo motor to adjust the horizontal position of the foot. Then, I will draw a semi circle on which the player can set the ball anywhere. Combining this mechanism will provide much greater interactivity to the player and make the game more strategic for the player (especially when there will be fielders on the ground).
+
+
+Here is the picture of the table as of now:
+![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July3Pic.jpeg)
+
