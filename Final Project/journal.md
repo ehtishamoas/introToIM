@@ -46,7 +46,6 @@ I also found the servo motor's speed to be very low. So, I decided to use the dc
 
 Next thing I plan on doing is to use servo motor to adjust the horizontal position of the foot. Then, I will draw a semi circle on which the player can set the ball anywhere. Combining this mechanism will provide much greater interactivity to the player and make the game more strategic for the player (especially when there will be fielders on the ground).
 
-
 Here is the picture of the table as of now:
-![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July3Pic.jpeg)
 
+![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July3Pic.jpeg)
