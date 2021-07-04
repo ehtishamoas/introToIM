@@ -62,6 +62,6 @@ I have also added the functionality to control the dc motor using keyboard keys 
 
 Moreover, I have started using a super-bouncy rubber ball instead of a plastic ball since the rubber ball retains much of its momentum after colliding with the side walls.
 
-For tomorrow, I plan to buy some male to female jumper wires to add the extension to the wires in a way that ultrasonic sensor would be underneath the table just before the goal hole to make it able to detect the falling ball.
-
 Here is [link](https://drive.google.com/file/d/1IKEQx1xOQliZmNfA6ZptG4-nyvMgKJqo/view?usp=drivesdk) to the video illustrating the working.
+
+For tomorrow, I plan to buy some male to female jumper wires to add the extension to the wires in a way that ultrasonic sensor would be underneath the table just before the goal hole to make it able to detect the falling ball.
