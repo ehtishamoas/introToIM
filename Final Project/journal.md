@@ -42,11 +42,26 @@ Here is the picture of the material and the progress I made today:
 
 Today I created a goal using small net and some paper straws. I also created a hole in the goal place where the ball will fall and detected by the ultrasonic sensor.
 
-I also found the servo motor's speed to be very low. So, I decided to use the dc motor instead. Now player can use up and down arrow keys to adjust the position of foot and then use the spacebar to kick the ball.
+I also found the servo motor's speed to be very low. So, I decided to use the dc motor instead. Now I will add the feature to allow the player to use up and down arrow keys to adjust the position of foot and then use the spacebar to kick the ball.
 
-Next thing I plan on doing is to use servo motor to adjust the horizontal position of the foot. Then, I will draw a semi circle on which the player can set the ball anywhere. Combining this mechanism will provide much greater interactivity to the player and make the game more strategic for the player (especially when there will be fielders on the ground).
+Another next thing I plan on doing is to use servo motor to adjust the horizontal position of the foot. Then, I will draw a semi circle on which the player can set the ball anywhere. Combining this mechanism will provide much greater interactivity to the player and make the game more strategic for the player (especially when there will be fielders on the ground).
 
 Here is the [link](https://drive.google.com/file/d/1hSnmU6uASnU4daqbiLh_kcRR7AeGvoaM/view?usp=sharing) to the video and below is the picture of the table as of now:
 
 
 ![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July3Pic.jpeg)
+
+
+### July 4, 2021:
+
+I have fixed servo motor on the game board (field) and on it the dc motor that is used to move the shoe which in turns kicks the ball.
+
+I have also added features that allows player to control the servo motor (between certain angles) with LEFT and RIGHT arrow keys which allows the player to kick the ball in many different directions to plan the strategy to hit the goal when fielders are on the board.
+
+I have also added the functionality to control the dc motor using keyboard keys in order to adjust the foot and hit the ball.
+
+Moreover, I have started using a super-bouncy rubber ball instead of a plastic ball since the rubber ball retains much of its momentum after colliding with the side walls.
+
+For tomorrow, I plan to buy some male to female jumper wires to add the extension to the wires in a way that ultrasonic sensor would be underneath the table just before the goal hole to make it able to detect the falling ball.
+
+Here is [link](https://drive.google.com/file/d/1IKEQx1xOQliZmNfA6ZptG4-nyvMgKJqo/view?usp=drivesdk) to the video illustrating the working.
