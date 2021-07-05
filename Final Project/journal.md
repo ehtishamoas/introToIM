@@ -65,3 +65,25 @@ Moreover, I have started using a super-bouncy rubber ball instead of a plastic b
 Here is [link](https://drive.google.com/file/d/1IKEQx1xOQliZmNfA6ZptG4-nyvMgKJqo/view?usp=drivesdk) to the video illustrating the working.
 
 For tomorrow, I plan to buy some male to female jumper wires to add the extension to the wires in a way that ultrasonic sensor would be underneath the table just before the goal hole to make it able to detect the falling ball.
+
+
+### July 5, 2021:
+
+Today I bought some small plastic-made characters and turned them into players using blue and white acrylic paint.
+
+Here is a picture of the game board with players:
+
+![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July5Pic1.jpg)
+
+Secondly, I made a small tunnel under the goal which narrows down as the ball slides down so that the ball would leave through one position only.
+
+Then, I made some experiments using ultrasonic distance-measuring sensor. I found the results to be inaccurate and not helpful.
+
+Thus, I acted upon Professor Shiloh's advice to use the Photoresistor. I added the resistor at the end of the tunnel where the ball would stop right in front of it.
+So, even in a not-so-bright room, the difference between the photoresistor's readings is quite detectable when the ball is front of it and when the ball is not in front of it.
+
+Here is the picture of the under-the-table set up (photoresistor is marked with red circle):
+
+![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July5Pic2.jpg)
+
+Now, my work on the arduino side is done and my focus would be entirely on the processing side for the next couple of days.
