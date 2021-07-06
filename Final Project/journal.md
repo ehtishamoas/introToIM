@@ -87,3 +87,64 @@ Here is the picture of the under-the-table set up (photoresistor is marked with 
 ![Photograph](https://github.com/ehtishamoas/introToIM/blob/main/Final%20Project/July5Pic2.jpg)
 
 Now, my work on the arduino side is done and my focus would be entirely on the processing side for the next couple of days.
+
+
+### July 6, 2021:
+
+As I started working on the processing, I happened to discuss the game idea with my friends. They suggested that if the game is to be single player, it would be boring. Moreover, one player can always cheat by not placing the fielders on the given positions or by putting the ball inside the goal by hand. Thus, I decided to turn it into a two-player game where each of the players would get 5 shots each. At each turn, one players adjust the shoe's position and takes a shot, while the other player sets the fielders on the board according to the told rules. Both players will make sure that the other one does not cheat.
+
+I also painted three players red while left the other three blue. Each player gets to place three fielders considering the size of the board.
+
+Most imporantly, I used the state machine idea from today's lecture and created different states where each state calls a function. So far, I have created the start screen, the instructions screen, and the toss screen. 
+
+Here is the [link](https://drive.google.com/file/d/1vkTXBu4o-TCMzgL33O_8alJADQYYQHLM/view?usp=sharing) to the video illustrating the working so far.
+
+Below is the code of my draw function so far:
+
+ ```
+ void draw() {
+  if (state == 0) {
+    startScreen();
+  } else if (state == 1) {
+    instructions();
+  } else if (state == 2) {
+    toss();
+  } else if (state == 3) {
+    game();
+  } else if (state == 4) {
+    gameOver();
+  }
+}
+ ```
+ 
+ And here is the code of my keyPressed function so far:
+ 
+ ```
+ void keyPressed() {
+  if (state == 0 && keyCode == ENTER) {
+    state = 1;
+  } else if (state == 1 && keyCode == ENTER) {
+    state = 2;
+  } else if (state == 2 && keyCode == ENTER) {
+    state = 3;
+  }
+
+  if (state == 3 && keyCode == 'R') {
+    isReady = true;
+  }
+
+  if (state == 3 && isSetting) {
+    if (keyCode == ' ') {
+      isKicking = true;
+    } else if (keyCode == UP) {
+      settingUP = true;
+    } else if (keyCode == DOWN) {
+      settingDOWN = true;
+    } else if (keyCode == LEFT) {
+      settingLEFT = true;
+    } else if (keyCode == RIGHT) {
+      settingRIGHT = true;
+    }
+  }
+}
+ ```
