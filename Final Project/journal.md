@@ -117,7 +117,7 @@ Below is the code of my draw function so far:
 }
  ```
  
- And here is the code of my keyPressed function so far:
+ And below is the code of my keyPressed function so far:
  
  ```
  void keyPressed() {
