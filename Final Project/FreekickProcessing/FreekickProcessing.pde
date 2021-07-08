@@ -1,8 +1,16 @@
+/* Author: Ehtisham Ul Haq 
+ * Assignment: Final Project
+ * Game Name: Freekick Football
+ * Due Date: July 8, 2021
+*/
+
+//Import the libraries:
 import processing.serial.*;
 import processing.sound.*;
 
-Serial myPort;  // The serial port
+Serial myPort;  //serial port
 
+//Boolean variables declaration for controlling different things in the game
 boolean isKicking = false;
 boolean settingUP = false;
 boolean settingDOWN = false;
@@ -18,9 +26,11 @@ boolean goalScreen = false;
 boolean goalSfx = false;
 boolean gameEndSfx = false;
 
+//Stores time provided by millis(), that's why long is used instead of integer
 long startTime;
 long movingTime;
 
+//The variable to implement state machine:
 int state = 0;
 /*
  state = 0: display startscreen;
@@ -34,34 +44,39 @@ int turn = int(random(0, 2));
 // turn = 0: RED;
 // turn = 1: BLUE;
 
+//0 is always coded to Red and 1 to Blue
 int shots0 = 5;
 int shots1 = 5;
 
 int score0 = 0;
 int score1 = 0;
 
+//ArrayLists to store the nature of shots taken by the players (in terms of goal or miss)
 ArrayList<Integer> shotsRed = new ArrayList<Integer>();
 ArrayList<Integer> shotsBlue = new ArrayList<Integer>();
 
-float LDRreading;
+float LDRreading; //Gets reading from arduino
 
-PImage startScreen, instructionsScreen, tossScreen, fieldScreen, statsScreen;
-SoundFile backgroundSound, enterSound, gameOverSound, goalSound, goalMissedSound, whistleSound;
+PImage startScreen, instructionsScreen, tossScreen, fieldScreen, statsScreen; //image assets
+SoundFile backgroundSound, enterSound, gameOverSound, goalSound, goalMissedSound, whistleSound; //sound assets
 
 void setup() {
-  size(1366, 768);
+  size(1366, 768); // very common resolution
 
+  //Communication with arduino with handshaking:
   String portname=Serial.list()[0];
   myPort = new Serial(this, portname, 9600);
   myPort.clear();
   myPort.bufferUntil('\n');
-
+  
+  //Loading image assets:
   startScreen = loadImage("/images/startScreen.jpg");
   instructionsScreen = loadImage("/images/instructionsScreen.png");
   tossScreen = loadImage("/images/toss.jpg");
   fieldScreen = loadImage("/images/field1.png");
   statsScreen = loadImage("/images/statsScreen.png");
 
+  //Loading sound assets:
   backgroundSound = new SoundFile(this, "/sounds/bg.mp3");
   enterSound = new SoundFile(this, "/sounds/enter.mp3");
   gameOverSound = new SoundFile(this, "/sounds/gameEnd.mp3");
@@ -69,11 +84,12 @@ void setup() {
   goalMissedSound = new SoundFile(this, "/sounds/goalMiss.mp3");
   whistleSound = new SoundFile(this, "/sounds/whistle.mp3");
 
-  backgroundSound.play();
+  backgroundSound.play(); //start playing background sound wth loop
   backgroundSound.loop();
 }
 
 void draw() {
+  //call different functions on different values for state:
   if (state == 0) {
     startScreen();
   } else if (state == 1) {
@@ -87,6 +103,9 @@ void draw() {
   }
 } 
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// startScreen function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 void startScreen() {
   image(startScreen, 0, 0, width, height+100);
   PFont algerian = createFont("algerian", 70);
@@ -95,13 +114,23 @@ void startScreen() {
   text("Free-kick Football", width/3.8, height/5);
   algerian = createFont("algerian", 40);
   textFont(algerian);
-  text("Press Enter to continue...", width/3, height/3);
+  text("Press Enter to continue...", width/3, height/3); // Swiping to next screen feature is implemented under keyPressed function
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// instructions function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 void instructions() {
   image(instructionsScreen, 0, 0, width, height);
 }
 
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// toss function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//The toss is basically done already while declaring turn variable. This function just shows player who got the first turn:
 void toss() {
   image(tossScreen, 0, 0, width, height);
   PFont algerian = createFont("algerian", 35);
@@ -125,55 +154,65 @@ void toss() {
   text("Press Enter to continue...", width/1.8, height/1.25);
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// game function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 void game() {
-  println("LDR: " + LDRreading);
-  if (shots0 == 0 && shots1 == 0) {
+  if (shots0 == 0 && shots1 == 0) { // checks whether the game is still on, otherwise changes state which in turn makes the draw function call the gameOver function
     state = 4;
-    gameEndSfx = true;
+    gameEndSfx = true; //boolean used to make sure the sound.play() is not called on loop. More on that in gameOver function.
   } else {
-    if (!shotTaken) {
+    if (!shotTaken) { //this boolean variable allows the statistics screen to show until enter is pressed after which, the next player takes the turn.
 
-      isSetting = true;
-      displayField();
+      isSetting = true; //When state 3 is reached, player can start setting the ball
+      displayField(); //Field with all the instructions to both players is shown.
 
-      if (isReady) {
+      if (isReady) { //Once the shot taking player presses R, the below code starts executing:
+        
         if (timeReading) {
-          startTime = millis()/1000;
+          
+          // Start time(in seconds) is taken only once while movingTime updates continously. So, the difference between these two times will be used to show remaining time to hit the goal...   
+          startTime = millis()/1000; 
           movingTime = millis()/1000;
-          readingTaken = true;
+          
+          readingTaken = true; // This boolean variable makes sure that if player presses R again, StartTime value remains unchanged
         } 
-        timeReading = false;
-        if (movingTime-startTime <= 12 && !goalScored) {
-          if (movingTime-startTime <= 10) { //Player will be shown 10 seconds time but 2 seconds will be extra since ball takes time to reach LDR;
+        
+        timeReading = false; // turning timeReading boolean makes sure that StartTime reading is taken only once even whilst we are in the loop by draw function.
+        
+        if (movingTime-startTime <= 12 && !goalScored) { //goalScored boolean is doing multiple things. Here, it makes sure that as soon as ball is detected by LDR, this if statement which has RETURN keyword becomes false. 
+          
+          if (movingTime-startTime <= 10) { //Player will be shown 10 seconds time but 2 seconds will be extra since ball takes time to reach LDR. So, if ball goes in the hole at 0 or 1 second remaining, the goal wil be registered because of grace period.
             PFont algerian = createFont("algerian", 30);
             textFont(algerian);
             fill (0);
-            text("Remaining Time: " + (10-(movingTime-startTime)), width/2.5, height/10);
+            text("Remaining Time: " + (10-(movingTime-startTime)), width/2.5, height/10); //Show the time from 10 to 0
           }
 
-          if (LDRreading <= 140) {
+          if (LDRreading <= 140) { //The threshold differs according to brightness in different areas. For my room, <= 140 works best.
             goalScored = true;
           }
-          movingTime = millis()/1000;
-          goalScreen = true;
-          goalSfx = true;
-          return;
+          movingTime = millis()/1000; // moving Time keeps on updating continously
+          goalScreen = true; // boolean used to show the goal score screen untill enter is pressed (see below if statement)
+          goalSfx = true; // boolean used to make sure the goal sound effect is played only once while we are in the draw function's loop(see below if statement)
+          return; 
         }
 
         if (turn == 0) {
           if (goalScored) {
             if (goalSfx) {
               goalSound.play();
-              goalSfx = false;
+              goalSfx = false; // So, here we turn this boolean false so this if condition would play only once
             }  
             if (goalScreen) {
               PImage goalScreen = loadImage("/images/goal.png");
               image(goalScreen, 0, 0, width, height);
-              return;
+              return; //Using return keyword so the function would not go any further and the goal screen will be shown until player press enter
             }
             score0++;
             shots0--;
-            shotsRed.add(1);
+            shotsRed.add(1); // adding 1 means goal scored, adding 0 means goal missed.
           } else {
             if (goalSfx) {
               goalMissedSound.play();
@@ -221,16 +260,21 @@ void game() {
         textFont(algerian);
         text ("Press Enter to continue...", width/3.8, height/1.2);
 
-        turn = (turn + 1) % 2;
+        turn = (turn + 1) % 2; // alternate the turn
         goalScored = false;
         isSetting = false;
         readingTaken = false;
-        shotTaken = true;
+        shotTaken = true; // Here we are making tis true so the major part of game function would not be executed until player presses enter
         isReady = false;
       }
     }
   }
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// displayField function, called in game function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 
 void displayField() {
   image(fieldScreen, 0, 0, width, height);
@@ -289,8 +333,12 @@ void displayField() {
   }
 }
 
-void displayStats() {
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// displayStats function, called in game function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+void displayStats() {
+  //Checks if the scores are tied when the game overs. If that's the case, it increments the remaining shots of both players.
   if (shots0 == 0 && shots1 == 0) {
     if (score0 == score1) {
       shots0++;
@@ -298,7 +346,8 @@ void displayStats() {
     }
   }
   image(statsScreen, 0, 0, width, height);
-
+  
+  //Display green or red ellipses to indicate how the last shots went
   if (shotsRed.size() <= 5) {
     for (int i = 0; i<shotsRed.size(); i++) {
       if (shotsRed.get(i) == 0) {
@@ -308,7 +357,10 @@ void displayStats() {
       }
       ellipse((width/3.45 + (i*20)), height/3.08, 10, 10);
     }
-  } else {
+    
+  // if the scores were tied and new shots are given until one of the players wins, the ellipses for the latest five shots are displayed (like what happens in other football games and penalties mathces broadcasts.
+  
+  } else { 
     for (int i = shotsRed.size() - 5; i<shotsRed.size(); i++) {
       if (shotsRed.get(i) == 0) {
         fill(255, 0, 40);
@@ -366,9 +418,16 @@ void displayStats() {
   text("Remaining Shots: " + shots1, width/1.62, height/2.5);
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// gameOver function
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
 void gameOver() {
   
   displayStats();
+  
+  //Display the total score at the end of the game as well:
   
   text("Score: " + score1, width/1.53, height/2.2);
   text("Score: " + score0, width/3.8, height/2.2);
@@ -394,9 +453,14 @@ void gameOver() {
   if (gameEndSfx) {
     gameOverSound.play();
     gameOverSound.loop();
-    gameEndSfx = false;
+    gameEndSfx = false; // This allows this if condition to be executed only once while inside the draw function's loop
   }
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// restart function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 
 void restart() {
   gameOverSound.stop();
@@ -424,6 +488,10 @@ void restart() {
   shotsRed = new ArrayList<Integer>();
   shotsBlue = new ArrayList<Integer>();
 }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// keyPressed function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 void keyPressed() {
   if (state == 0 && keyCode == ENTER) {
@@ -471,6 +539,10 @@ void keyPressed() {
   }
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// keyReleased function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 void keyReleased() {
   isKicking = false;
   settingUP = false;
@@ -479,21 +551,29 @@ void keyReleased() {
   settingRIGHT = false;
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// mousePressed function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
 void mousePressed() {
   if (state == 4) {
     restart();
   }
-} 
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// SerialEvent function:
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 void serialEvent(Serial myPort) {
 
   String inString = myPort.readStringUntil('\n');
-  // Always check to make sure the string isn't empty
+  // checking to make sure the string isn't empty
   if (inString != null) {
-    // trim off any whitespace:
+    // trimming off whitespace:
     inString = trim(inString);
     // convert to a float
-    LDRreading = float(inString);
+    LDRreading = float(inString); //storing the value from arduino into LDRreading variable
   }
-  myPort.write(int(isKicking)+","+int(settingUP)+","+int(settingDOWN)+","+int(settingLEFT)+","+int(settingRIGHT)+"\n"); //Send the LED values back to arduino
+  myPort.write(int(isKicking)+","+int(settingUP)+","+int(settingDOWN)+","+int(settingLEFT)+","+int(settingRIGHT)+"\n"); //Send the motors control values to arduino
 }
