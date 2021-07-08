@@ -148,3 +148,19 @@ Below is the code of my draw function so far:
   }
 }
  ```
+
+### July 7, 2021:
+
+I have completed creating the final version of my game today.
+
+I added a game function in processing that is the main controlling function of the code. I added the functionality to put red and green ellipses in the stats screen on the basis of whether the player has hit the goal missed. Also, I tried to mimic the football penalties by adding the no-tie rule. So, if the game ties at the first 5 shots, the remaining shots for both players keep on increasing by 1 until one of them wins the game. The ellipses show the last five shots only, just like in all the famous footballl penalty games. However, the total score (number of goals) is displayed at the end of the game.
+
+I also added restart function to make the game capable of restarting rather than closing the program.
+
+Lastly, I added some cool sound effects from internet including background music, screen swipe sound, whistle sound, goal score sound etc.
+
+In processing, I have used images, texts, sounds, and shapes (ellipses) while in arduino, I have used servo motor, dc motor, photoresistor, analog input and analog output. 
+
+Here is the [link](https://drive.google.com/file/d/1EUguWiRGTzXcS7Ev2WdxcLKLuRvj87ar/view?usp=sharing) to the extensive gameplay showing all the features of the game.
+
+The codes for both processing and arduino along with the image and sound assets can be found in my github repository under the Final Project folder.
