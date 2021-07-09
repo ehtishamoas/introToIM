@@ -56,6 +56,7 @@ ArrayList<Integer> shotsRed = new ArrayList<Integer>();
 ArrayList<Integer> shotsBlue = new ArrayList<Integer>();
 
 float LDRreading; //Gets reading from arduino
+int goalDetectionThreshold = 150; //The threshold differs according to the brightness in different areas. For my room, 150 works best.
 
 PImage startScreen, instructionsScreen, tossScreen, fieldScreen, statsScreen; //image assets
 SoundFile backgroundSound, enterSound, gameOverSound, goalSound, goalMissedSound, whistleSound; //sound assets
@@ -190,7 +191,7 @@ void game() {
             text("Remaining Time: " + (10-(movingTime-startTime)), width/2.5, height/10); //Show the time from 10 to 0
           }
 
-          if (LDRreading <= 140) { //The threshold differs according to brightness in different areas. For my room, <= 140 works best.
+          if (LDRreading <= goalDetectionThreshold) {
             goalScored = true;
           }
           movingTime = millis()/1000; // moving Time keeps on updating continously
